@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const ms = require("ms");
 
 
-const token = 'NzYwNDQ1MTc5NTc5OTkwMDc2.X3MJww.LYiV-dUy_ZdoKxW9zA-rnH-zEBw';
+//const token = 'NzYwNDQ1MTc5NTc5OTkwMDc2.X3MJww.LYiV-dUy_ZdoKxW9zA-rnH-zEBw';
 
 const PREFIX = '';
 
