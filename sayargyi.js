@@ -7,6 +7,10 @@ const token = 's9sp3ECql4fD6mDZwglGyJw1-8J.wwJM3X.2cDMwkTO5cTN5cTM1QDNwYzN';
 const revtoken = token.split("").reverse().join("");
 const PREFIX = '';
 
+function getStr()
+{   
+    return "something";
+}
 
 bot.on('ready', () => {
     console.log('This bot is active!');
@@ -46,14 +50,18 @@ bot.on('message', message => {
                     return message.reply("tell him why is he a Laung Kee")
                 }
                 console.log('reasons OK!!');
+
+                //------- EXTER FUNCTION TESTED AND IT'S WORKED ---------
+                //console.log(getStr());
                 //message.channel.send(role.id);
                 
                 //person.roles.remove(mainrole.id);
                 //console.log(person.voice.channel);
                 try {
-                    if(person.voice.channel==null){}
-                } catch (error) {
+                    if(person.voice.channel.id==null){return;}
+                } catch (err) {
                     message.channel.send('user not connected!!');
+                    console.log(err.message);
                     return;
                 }
                 
@@ -62,7 +70,7 @@ bot.on('message', message => {
                     console.log('adding role done!!')
                     person.voice.setMute(true);
                     console.log('muted!!')
-                }catch(e)
+                }catch(err)
                 {
                     console.log('error giving roles!!');
                     return;
@@ -70,7 +78,7 @@ bot.on('message', message => {
                 
                 try {
                     message.channel.send(`<@${person.user.id}> ကို ${ms(ms(time))} ပါးစပ်ပိတ်ခိုင်းထားတယ် , ${desc}`)
-                } catch (error) {
+                } catch (err) {
                     console.log('error converting time!!');
                     return;
                 }
@@ -83,8 +91,9 @@ bot.on('message', message => {
                         person.roles.remove(role.id);
                         console.log(role.id)
                         message.channel.send(`<@${person.user.id}> စကားပြန်ပြောလို့ရ ပြီ.`)
+                        //console.log(getStr());
                     }, ms(time));
-                } catch (error) {
+                } catch (err) {
                     console.log('error reassigning roles!!');
                     return;
                 }
