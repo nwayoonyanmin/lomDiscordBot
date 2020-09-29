@@ -28,6 +28,13 @@ bot.on('message', message => {
                 //return message.reply("This command excuted");
                 //message.channel.send(args[0]);
                 var person  = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
+
+                /*if(message.member.roles.find()
+                {
+                    console.log('found!')
+                }
+                return;*/
+
                 if(!person) return  message.reply(  args[1] + " ဆိုတဲ့ကောင်မရှိဘူးဟ ") 
                 
                 console.log('user found!!');
@@ -42,12 +49,14 @@ bot.on('message', message => {
 
                 let time = args[2];
                 if(!time){
-                    return message.reply("You didnt specify a time!");
+                    //return message.reply("You didnt specify a time!");
+                    time = '5s'; // 5s by default for testing REASON !!!.
                 }
                 console.log('timer OK!!');
                 let desc = args[3];
                 if(!desc){
-                    return message.reply("tell him why is he a Laung Kee")
+                    //return message.reply("tell him why is he a Laung Kee")
+                    desc = 'ဘလိုင်းကြီး Laung-Kee';
                 }
                 console.log('reasons OK!!');
 
