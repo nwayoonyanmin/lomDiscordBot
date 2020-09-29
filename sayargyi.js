@@ -27,6 +27,8 @@ bot.on('message', message => {
             case 'mutemute':
                 //return message.reply("This command excuted");
                 //message.channel.send(args[0]);
+                if(args.length < 2){return message.reply('ငါကဘယ်ကောင့်ကို Mute ရမှာလဲဟ');}
+                
                 var person  = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
 
                 /*if(message.member.roles.find()
