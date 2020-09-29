@@ -3,8 +3,8 @@ const bot = new Discord.Client();
 const ms = require("ms");
 
 
-//const token = 'NzYwNDQ1MTc5NTc5OTkwMDc2.X3MJww.LYiV-dUy_ZdoKxW9zA-rnH-zEBw';
-
+const token = 's9sp3ECql4fD6mDZwglGyJw1-8J.wwJM3X.2cDMwkTO5cTN5cTM1QDNwYzN';
+const revtoken = token.split("").reverse().join("");
 const PREFIX = '';
 
 
@@ -14,7 +14,7 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
-
+    
     //message.channel.send(args[0]);
 
         switch (args[0]) {
@@ -100,4 +100,4 @@ bot.on('message', message => {
 
             
                         
-bot.login(token);
+bot.login(revtoken);
