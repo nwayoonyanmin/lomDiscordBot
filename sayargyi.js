@@ -11,13 +11,23 @@ function getStr()
 {   
     return "something";
 }
-
+function getArgs( str, keyword) {
+    
+    var n = str.indexOf(keyword);
+    if(n==-1)return -1;
+    var m = str.slice(n+2).search("-");
+    if(m==-1){
+        return str.slice(n+2,str.length).trim();
+    }
+    return str.slice(n+2,n+m+1).trim();
+    }
 bot.on('ready', () => {
     console.log('This bot is active!');
 })
 
 bot.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
+    let fullmsg = message.content.substring();
     
     //message.channel.send(args[0]);
 
@@ -29,6 +39,10 @@ bot.on('message', message => {
                 //message.channel.send(args[0]);
                 if(args.length < 2){return message.reply('ငါကဘယ်ကောင့်ကို Mute ရမှာလဲဟ');}
 
+                /*console.log(fullmsg);
+                console.log(getArgs(fullmsg,"-t"))   ;
+                console.log(getArgs(fullmsg,"-r"))   ;
+                return; */
                 var person  = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
 
                 /*if(message.member.roles.find()
@@ -49,18 +63,20 @@ bot.on('message', message => {
                 if(!role) return message.reply("Couldn't find the mute role.")
                 console.log('role found!!');
 
-                let time = args[2];
-                if(!time){
+                //let time = args[2];
+                let time = getArgs(fullmsg,"-t");
+                if(time==-1){
                     //return message.reply("You didnt specify a time!");
                     time = '5s'; // 5s by default for testing REASON !!!.
                 }
-                console.log('timer OK!!');
-                let desc = args[3];
-                if(!desc){
+                console.log('timer OK!!' + time);
+                //let desc = args[3];
+                let desc = getArgs(fullmsg,"-r");
+                if(desc==-1){
                     //return message.reply("tell him why is he a Laung Kee")
                     desc = 'ဘလိုင်းကြီး Laung-Kee';
                 }
-                console.log('reasons OK!!');
+                console.log('reasons OK!!' + desc);
 
                 //------- EXTER FUNCTION TESTED AND IT'S WORKED ---------
                 //console.log(getStr());
