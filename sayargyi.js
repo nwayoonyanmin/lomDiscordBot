@@ -11,6 +11,10 @@ function getStr()
 {   
     return "something";
 }
+function botHelp()
+{
+
+}
 function getArgs( str, keyword) {
     
     var n = str.indexOf(keyword);
@@ -71,6 +75,15 @@ bot.on('message', message => {
                     return;
                 }
                 
+
+                try {
+                    message.channel.send(`<@${person.user.id}> ကို ${ms(ms(time))} ပါးစပ်ပိတ်ခိုင်းထားတယ် , ${desc}`)
+                } catch (err) {
+                    console.log('error converting time!!');
+                    message.channel.send("Time format မှားနေတယ်");
+                    return;
+                }
+
                 try{
                     person.roles.add(role.id);
                     console.log('adding role done!!')
@@ -81,15 +94,6 @@ bot.on('message', message => {
                     console.log('error giving roles!!');
                     return;
                 }
-                
-                try {
-                    message.channel.send(`<@${person.user.id}> ကို ${ms(ms(time))} ပါးစပ်ပိတ်ခိုင်းထားတယ် , ${desc}`)
-                } catch (err) {
-                    console.log('error converting time!!');
-                    message.channel.send("Time format မှားနေတယ်");
-                    return;
-                }
-                
                 try {
                     setTimeout(function(){
 
