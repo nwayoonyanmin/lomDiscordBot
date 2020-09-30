@@ -107,6 +107,7 @@ bot.on('message', message => {
                     message.channel.send(`<@${person.user.id}> ကို ${ms(ms(time))} ပါးစပ်ပိတ်ခိုင်းထားတယ် , ${desc}`)
                 } catch (err) {
                     console.log('error converting time!!');
+                    message.channel.send("Time format မှားနေတယ်");
                     return;
                 }
                 
