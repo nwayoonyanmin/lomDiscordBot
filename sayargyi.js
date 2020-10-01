@@ -32,10 +32,14 @@ bot.on('ready', () => {
 bot.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
     let fullmsg = message.content.substring();
-    
+    let cmdKey = args[0].toLowerCase();
     //message.channel.send(args[0]);
 
-        switch (args[0]) {
+        switch (cmdKey) {
+            case 'မင်းဆရာဘယ်သူလဲ':
+                message.channel.send('ဆရာ စင်ရော် ပါခင်ဗျ။');
+                    return;
+
             case 'tatesan':
             case 'တိတ်စမ်း':
             case 'mutemute':
