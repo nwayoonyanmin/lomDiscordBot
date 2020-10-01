@@ -12,14 +12,14 @@ function getStr()
 {   
     return "something";
 }
-function music(client)
+function music(client,youtubelink)
 {
     const streamOptions = { seek: 0, volume: 1 };
     //var voiceChannel = message.member.voiceChannel;
-    var voiceChannel = client.channels.cache.find(channel => channel.id==='759421556761296907node');
-        voiceChannel.join().then(connection => {
+    var voiceChannel = client.channels.cache.find(channel => channel.id==='612983532327010314');
+            voiceChannel.join().then(connection => {
             console.log("joined channel");
-            const stream = ytdl('https://www.youtube.com/watch?v=8FU--o8_HwY', { filter : 'audioonly' });
+            const stream = ytdl(youtubelink, { filter : 'audioonly' });
             const dispatcher = connection.play(stream, streamOptions);
             dispatcher.on("end", end => {
                 console.log("left channel");
@@ -67,15 +67,17 @@ bot.on('message', message => {
     //message.channel.send(args[0]);
 
         switch (cmdKey) {
+            case 'ဖွင့်':
+            case 'phwint':
             case 'sayarmusic' :
-                music(message.client);
+                music(message.client,args[1]);
                 return;
             case 'joinvc':
                 joinVCtest(message.client);
                 return;
             case 'မင်းဆရာဘယ်သူလဲ':
                 message.channel.send('ဆရာ စင်ရော် ပါခင်ဗျ။');
-                    return;
+                return;
 
             case 'tatesan':
             case 'တိတ်စမ်း':
