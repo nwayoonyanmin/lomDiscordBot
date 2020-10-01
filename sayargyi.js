@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require("ms");
-
+const fs = require('fs');
+const ytdl = require('ytdl-core');
 
 const token = 's9sp3ECql4fD6mDZwglGyJw1-8J.wwJM3X.2cDMwkTO5cTN5cTM1QDNwYzN';
 const revtoken = token.split("").reverse().join("");
@@ -11,9 +12,38 @@ function getStr()
 {   
     return "something";
 }
-function botHelp()
+function music(client)
+{
+    const streamOptions = { seek: 0, volume: 1 };
+    //var voiceChannel = message.member.voiceChannel;
+    var voiceChannel = client.channels.cache.find(channel => channel.id==='759421556761296907node');
+        voiceChannel.join().then(connection => {
+            console.log("joined channel");
+            const stream = ytdl('https://www.youtube.com/watch?v=8FU--o8_HwY', { filter : 'audioonly' });
+            const dispatcher = connection.play(stream, streamOptions);
+            dispatcher.on("end", end => {
+                console.log("left channel");
+                voiceChannel.leave();
+            });
+        }).catch(err => console.log(err));
+}
+function un_mute()
 {
 
+}
+function joinVCtest(client)
+{
+    console.log('channel called!!');
+    //const channel = client.channels.join("612983532327010314");
+    const channel = client.channels.cache.find(channel => channel.id==='612983532327010314');
+    if (!channel) return console.error("The channel does not exist!");
+    channel.join().then(connection => {
+      // Yay, it worked!
+      console.log("Successfully connected.");
+    }).catch(e => {
+      // Oh no, it errored! Let's log it to console :)
+      console.error(e);
+    });
 }
 function getArgs( str, keyword) {
     
@@ -33,9 +63,16 @@ bot.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
     let fullmsg = message.content.substring();
     let cmdKey = args[0].toLowerCase();
+    
     //message.channel.send(args[0]);
 
         switch (cmdKey) {
+            case 'sayarmusic' :
+                music(message.client);
+                return;
+            case 'joinvc':
+                joinVCtest(message.client);
+                return;
             case 'မင်းဆရာဘယ်သူလဲ':
                 message.channel.send('ဆရာ စင်ရော် ပါခင်ဗျ။');
                     return;
@@ -98,6 +135,8 @@ bot.on('message', message => {
                     console.log('error giving roles!!');
                     return;
                 }
+                //un_mute(message,person,role);
+                
                 try {
                     setTimeout(function(){
 
@@ -109,7 +148,7 @@ bot.on('message', message => {
                 } catch (err) {
                     console.log('error reassigning roles!!');
                     return;
-                }        
+                }      
             break;
         }
 });
