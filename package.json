@@ -3,5 +3,6 @@
     "version": "1.0.0",
     "scripts": {
         "start": "node sayargyi.js"
-    }
+    },
+    "dependencies": {"node":"^10.16.3"}
   }
