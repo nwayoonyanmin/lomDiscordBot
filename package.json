@@ -4,5 +4,7 @@
     "scripts": {
         "start": "node sayargyi.js"
     },
-    "dependencies": {"node":"^10.16.3"}
+    "dependencies": {
+        "node":"^10.16.3",
+        "discord.js": "^12.3.1"}
   }
