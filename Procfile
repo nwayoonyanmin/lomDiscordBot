@@ -1,2 +1,2 @@
-web: node sayargyi.js
+worker: node sayargyi.js
 
