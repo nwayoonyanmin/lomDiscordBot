@@ -10,7 +10,7 @@
         "ms":"2.1.2",
         "ffmpeg":"0.0.4",
         "ytdl-core":"3.3.0",
-        "avconv":"^0.0.0"
+        "avconv":"*"
     },
     "engines": {
         "node": "12.14.1",
