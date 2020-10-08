@@ -100,7 +100,7 @@ bot.on('message', message => {
                 //let time = args[2];
                 let time = getArgs(fullmsg,"-t");
                 if(time==-1){
-                    time = '5s'; // 5s by default for testing REASON !!!.
+                    time = '1m'; // 5s by default for testing REASON !!!.
                 }
                 console.log('timer OK!!' + time);
                 //let desc = args[3];
