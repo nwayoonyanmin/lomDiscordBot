@@ -78,7 +78,9 @@ bot.on('message', message => {
             case 'မင်းဆရာဘယ်သူလဲ':
                 message.channel.send('ဆရာ စင်ရော် ပါခင်ဗျ။');
                 return;
-
+            case 'sayarroll':
+                message.channel.send(random.randrange(1,101));
+                return;
             case 'tatesan':
             case 'တိတ်စမ်း':
             case 'mutemute':
