@@ -31,6 +31,24 @@ function un_mute()
 {
 
 }
+function sayarroll( min, max) {  
+
+    return Math.round(
+      Math.random() * (max - min) + min 
+    )
+  }
+function lomdice(dicecount)
+{
+    var dices = [dicecount];
+    for(dice in dices)
+    {
+        dice = Math.round(Math.random()*6);
+        //message.channel.send(dice);
+        console.log(dice);
+    }
+    
+    //message.channel.send();
+}
 function joinVCtest(client)
 {
     console.log('channel called!!');
@@ -79,7 +97,10 @@ bot.on('message', message => {
                 message.channel.send('ဆရာ စင်ရော် ပါခင်ဗျ။');
                 return;
             case 'sayarroll':
-                message.channel.send(random.randrange(1,101));
+                message.channel.send(sayarroll(Number(args[1]),Number(args[2])));
+                return;
+            case 'lomdice':
+                lomdice(Number(args[1]));
                 return;
             case 'tatesan':
             case 'တိတ်စမ်း':
