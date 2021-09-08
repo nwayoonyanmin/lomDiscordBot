@@ -31,7 +31,7 @@ function un_mute()
 {
 
 }
-function sayarroll( min, max) {  
+function sayarroll( min=0, max) {  
 
     return Math.round(
       Math.random() * (max - min) + min 
@@ -97,6 +97,8 @@ bot.on('message', message => {
                 message.channel.send('ဆရာ စင်ရော် ပါခင်ဗျ။');
                 return;
             case 'sayarroll':
+            case 'roll':
+            case '/roll':
                 message.channel.send(sayarroll(Number(args[1]),Number(args[2])));
                 return;
             case 'lomdice':
