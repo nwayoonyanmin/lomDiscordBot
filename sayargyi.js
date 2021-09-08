@@ -31,8 +31,9 @@ function un_mute()
 {
 
 }
-function sayarroll( min=0, max) {  
+function sayarroll( min, max) {  
 
+    console.log(min,max);
     return Math.round(
       Math.random() * (max - min) + min 
     )
