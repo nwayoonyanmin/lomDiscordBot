@@ -32,7 +32,7 @@ function un_mute()
 
 }
 function sayarroll( min, max) {  
-
+    if (!max) max = min ; min= 1;
     console.log(min,max);
     return Math.round(
       Math.random() * (max - min) + min 
