@@ -1,3 +1,4 @@
+#! node
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ms = require("ms");
@@ -105,6 +106,9 @@ bot.on('message', message => {
             case 'lomdice':
                 lomdice(Number(args[1]));
                 return;
+	    case 'ငါ့ကိုချစ်လား':
+		message.channel.send("ဟင့်အင်း")
+		return;
             case 'tatesan':
             case 'တိတ်စမ်း':
             case 'mutemute':

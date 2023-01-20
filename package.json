@@ -5,20 +5,19 @@
         "start": "node sayargyi.js"
     },
     "dependencies": {
-        "node":"^10.16.3",
-        "discord.js": "^12.3.1",
-        "ms":"2.1.2",
-        "ffmpeg":"0.0.4",
-        "ytdl-core":"3.3.0",
-        "avconv":"*"
+        "avconv": "*",
+        "discord.js": "^12.5.3",
+        "ffmpeg": "0.0.4",
+        "ms": "2.1.2",
+        "node": "^10.16.3",
+        "ytdl-core": "3.3.0"
     },
     "engines": {
         "node": "12.14.1",
         "npm": "6.13.4"
-      },
-      "repository": {
+    },
+    "repository": {
         "type": "git",
         "url": "git+link"
-      }
-
-  }
+    }
+}
